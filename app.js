@@ -9,11 +9,13 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var cors = require('cors');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(cors());
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -22,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/api/users', users);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
