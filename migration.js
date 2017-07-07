@@ -1,12 +1,4 @@
-var mysql = require('mysql');
+var mysql_dao = require('./db/mysql_dao');
 var migration = require('mysql-migrations');
 
-var connection = mysql.createPool({
-    connectionLimit : 10,
-    host     : 'localhost',
-    user     : 'root',
-    password : 'root',
-    database : 'social_music'
-});
-
-migration.init(connection, __dirname + '/migrations');
+migration.init(mysql_dao.get_connection(), __dirname + '/migrations');
