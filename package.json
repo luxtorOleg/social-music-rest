@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "clean-db": "node migration.js clean",
+    "init-db": "node migration.js init",
+    "migrate-db": "node migration.js migrate"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
